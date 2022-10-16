@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
 
   // que deleteItem va aser una propiedad de salida
   @Output() deleteItem: EventEmitter<Item> = new EventEmitter();
+  @Output() toggleItem: EventEmitter<Item> = new EventEmitter();
 
   constructor() {}
 
@@ -21,7 +22,8 @@ export class ItemComponent implements OnInit {
     this.deleteItem.emit(item);
   }
 
-  onToggle(item:Item){
+  onToggle(item: Item) {
     item.completed = !item.completed;
+    this.toggleItem.emit(item);
   }
 }
