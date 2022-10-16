@@ -21,12 +21,23 @@ export class ItemsComponent implements OnInit {
         completed: false,
       },
       {
-        id: 0,
+        id: 1,
         title: 'pan',
         price: 1.5,
         quiantity: 8,
         completed: true,
       },
+      {
+        id: 2,
+        title: 'chamarra',
+        price: 120,
+        quiantity: 1,
+        completed: false,
+      },
     ];
+  }
+
+  deleteItem(item: Item) {
+    this.items = this.items.filter((x) => x.id !== item.id);
   }
 }
