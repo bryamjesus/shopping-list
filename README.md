@@ -30,4 +30,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Create component
 ```bash
  ng g c components/items
+ ng generate component components/items
+```
+
+## Creat service
+```bash
+ ng g s services/item
+ ng generate service services/item
 ```
