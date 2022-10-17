@@ -15,12 +15,16 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     // this.items = []
-    this.items = this.itemService.getItems();
-    this.getTotal();
+    // this.items = this.itemService.getItems();
+    this.itemService.getItems().subscribe((data) => {
+      this.items = data;
+      this.getTotal();
+    });
   }
 
   deleteItem(item: Item) {
     this.items = this.items.filter((x) => x.id !== item.id);
+    this.itemService.delete(item).subscribe();
     this.getTotal();
   }
 
@@ -32,6 +36,7 @@ export class ItemsComponent implements OnInit {
   }
 
   toggleItem(item: Item) {
+    this.itemService.toggleItem(item).subscribe();
     this.getTotal();
   }
 }

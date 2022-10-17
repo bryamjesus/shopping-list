@@ -14,7 +14,7 @@ export class AddItemComponent implements OnInit {
   price: number = 0;
   quiantity: number = 0;
 
-  constructor(private itemServices: ItemService, private router:Router) {}
+  constructor(private itemServices: ItemService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -26,7 +26,9 @@ export class AddItemComponent implements OnInit {
     item.quiantity = this.quiantity;
     item.completed = false;
 
-    this.itemServices.addItem(item);
-    this.router.navigate(['/']);
+    // this.itemServices.addItem(item);
+    this.itemServices.addItem(item).subscribe((i) => {
+      this.router.navigate(['/']);
+    });
   }
 }
